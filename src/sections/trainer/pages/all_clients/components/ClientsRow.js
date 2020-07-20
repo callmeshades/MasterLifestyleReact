@@ -21,7 +21,12 @@ function ClientsRow(props) {
             </td>
             <td className="px-4 py-2">{ props.person.email }</td>
             <td className="px-4 py-2">
-                { props.person.program.weeks[0].program.name } - Weeks: { props.person.program.weeks.length }
+                {
+                     props.person.program.weeks ?
+                     `${props.person.program.weeks[0].program.name} - Weeks: ${props.person.program.weeks.length}`
+                     :
+                     "No program"
+                }
             </td>
             <td className="px-4 py-2">
                 <span className="flex justify-between items-center">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/navbar/Navbar";
 import { navigate } from "@reach/router";
-import { checkUserAuth } from '../../requests/authentication';
+import {checkForTrainerGroup, checkUserAuth} from '../../requests/authentication';
 import Spinner from "../../components/Spinner";
 
 
@@ -14,10 +14,18 @@ function Trainers(props) {
         const response = checkUserAuth();
         response.then(data => {
             if (!data.authed) {
+                console.log(data);
                 navigate('/login');
-            } else {
-                setLoading(false);
             }
+        }).then(() => {
+            checkForTrainerGroup().then(data => {
+                if (data.success) {
+                    setLoading(false);
+                } else {
+                    console.log(data);
+                    navigate('/users');
+                }
+            });
         })
     }, []);
 

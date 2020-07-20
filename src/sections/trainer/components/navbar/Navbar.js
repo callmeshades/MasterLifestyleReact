@@ -14,6 +14,11 @@ const navItems = [
         id: 2,
         name: 'Programs',
         url: '/trainers/programs'
+    },
+    {
+        id: 3,
+        name: 'Exercises',
+        url: '/trainers/exercises'
     }
 ]
 

@@ -43,7 +43,9 @@ function EditProgram(props) {
                 </div>
                 <div className="">
                     <ProgramContainer
+                        programId={props.programId}
                         program={program}
+                        setLoading={setLoading}
                     />
                 </div>
             </div>

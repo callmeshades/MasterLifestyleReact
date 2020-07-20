@@ -25,6 +25,7 @@ function ProgramsTable() {
         <ProgramRow
             program={item}
             key={item.id}
+            setLoading={setLoading}
         />
     );
 

@@ -22,6 +22,10 @@ const currentProgram = {
             "exercises": []
         })
     }),
+    updateProgramName: action((state, payload) => {
+        // Used for setting the current programs name/title
+        state.item.name = payload.program_name;
+    }),
     removeDay: action((state, payload) => {
         const day_index = state.item.modules.findIndex(item => item.id === payload.day_id)
         state.item.modules.splice(day_index, 1);
@@ -51,6 +55,11 @@ const currentProgram = {
                 break;
         }
 
+    }),
+    addExerciseToDay: action((state, payload) => {
+        const day_id = payload.day_id;
+        const modules_index = state.item.modules.findIndex(item => item.id === day_id);
+        state.item.modules[modules_index].exercises.push(payload.exercise_object);
     })
 }
 

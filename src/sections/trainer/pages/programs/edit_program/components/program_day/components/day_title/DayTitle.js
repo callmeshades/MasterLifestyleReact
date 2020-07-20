@@ -1,5 +1,5 @@
 import React from "react";
-import { Trash2, Copy, ChevronUp, ChevronDown } from "react-feather";
+import { Trash2, ChevronUp, ChevronDown } from "react-feather";
 import Name from "./name/Name";
 import {useStoreActions} from "easy-peasy";
 
@@ -31,13 +31,13 @@ function DayTitle(props) {
                             />
                     }
                 </button>
-                <button
-                    className="bg-white hover:bg-gray-100 rounded border focus:outline-none focus:shadow-outline text-white font-semibold px-2 py-1 mr-2">
-                    <Copy
-                        className="text-black"
-                        size={14}
-                    />
-                </button>
+                {/*<button*/}
+                {/*    className="bg-white hover:bg-gray-100 rounded border focus:outline-none focus:shadow-outline text-white font-semibold px-2 py-1 mr-2">*/}
+                {/*    <Copy*/}
+                {/*        className="text-black"*/}
+                {/*        size={14}*/}
+                {/*    />*/}
+                {/*</button>*/}
                 <button
                     onClick={() => removeDayFromProgram({day_id: props.program.id})}
                     className="bg-white hover:bg-gray-100 rounded border focus:outline-none focus:shadow-outline text-white font-semibold px-2 py-1">

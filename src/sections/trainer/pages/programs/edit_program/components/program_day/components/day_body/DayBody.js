@@ -30,6 +30,7 @@ function DayBody(props) {
                     addExerciseWindow ?
                         <AddExerciseWindow
                             setAddExerciseWindow={() => setAddExerciseWindow(false)}
+                            dayId={props.program.id}
                         />
                         :
                         ""

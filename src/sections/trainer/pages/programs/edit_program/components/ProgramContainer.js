@@ -11,6 +11,8 @@ function ProgramContainer(props) {
             <div className="h-100 w-full">
                 <ProgramTitle
                     program={props.program}
+                    programId={props.programId}
+                    setLoading={props.setLoading}
                 />
                 { props.program.modules && props.program.modules.map(item =>
                     <div
