@@ -15,7 +15,7 @@ function Bottom(props) {
     );
 
     return (
-        <div className="flex bg-white shadow py-2 px-4">
+        <div className="flex bg-white border-b shadow py-2 px-4">
             { allItems }
         </div>
     );

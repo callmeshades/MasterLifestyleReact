@@ -1,5 +1,5 @@
-import React from "react";
-import { Router } from '@reach/router';
+import React, {useEffect} from "react";
+import { Router, navigate } from '@reach/router';
 import Login from "./sections/login/Login";
 import Logout from "./sections/logout/Logout";
 
@@ -32,10 +32,20 @@ const CatchAll = () => {
     )
 };
 
+const RedirectToLogin = () => {
+    useEffect(() => {
+        navigate('/login');
+    }, [])
+    return (
+        <div></div>
+    )
+}
+
 
 function MyRouter() {
     return (
         <Router>
+            <RedirectToLogin path="/" />
             <Trainers path="/trainers">
                 <Home path="/" />
                 <AllClients path="/clients" />

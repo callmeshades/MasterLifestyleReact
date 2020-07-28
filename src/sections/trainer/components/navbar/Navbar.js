@@ -1,26 +1,26 @@
 import React from "react";
 import Logo from "../../../../components/Logo";
 import Controls from "./controls/Controls";
-import Bottom from "./Bottom";
+// import Bottom from "./Bottom";
 
 
-const navItems = [
-    {
-        id: 1,
-        name: 'Clients',
-        url: '/trainers/clients'
-    },
-    {
-        id: 2,
-        name: 'Programs',
-        url: '/trainers/programs'
-    },
-    {
-        id: 3,
-        name: 'Exercises',
-        url: '/trainers/exercises'
-    }
-]
+// const navItems = [
+//     {
+//         id: 1,
+//         name: 'Clients',
+//         url: '/trainers/clients'
+//     },
+//     {
+//         id: 2,
+//         name: 'Programs',
+//         url: '/trainers/programs'
+//     },
+//     {
+//         id: 3,
+//         name: 'Exercises',
+//         url: '/trainers/exercises'
+//     }
+// ]
 
 function Navbar() {
     return (
@@ -36,9 +36,9 @@ function Navbar() {
                 </div>
             </header>
 
-            <Bottom
-                allItems={navItems}
-            />
+            {/*<Bottom*/}
+            {/*    allItems={navItems}*/}
+            {/*/>*/}
         </div>
     );
 }

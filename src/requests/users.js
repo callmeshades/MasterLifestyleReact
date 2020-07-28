@@ -1,8 +1,11 @@
 
+const server_url = "";
+
 async function getUsersAssignment() {
     try {
-        let response = await fetch('/users/get-user-assignment/', {
-            method: 'GET'
+        let response = await fetch(`${server_url}/users/get-user-assignment/`, {
+            method: 'GET',
+            credentials: 'include'
         });
         return await response.json()
     } catch (e) {
@@ -13,9 +16,10 @@ async function getUsersAssignment() {
 
 async function saveUserAssignment(assignment) {
     try {
-        let response = await fetch('/users/update-user-assignment/', {
+        let response = await fetch(`${server_url}/users/update-user-assignment/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify({assignment})
         });
         return await response.json()

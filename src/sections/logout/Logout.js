@@ -13,8 +13,11 @@ function Logout() {
     }, []);
 
     return (
-        <div>
-            <Spinner/>
+        <div className="bg-gray-100 h-screen flex items-center">
+            <div className="container mx-auto">
+                <p className="font-semibold text-gray-700 mb-2 text-center">Please wait...</p>
+                <Spinner/>
+            </div>
         </div>
     )
 }

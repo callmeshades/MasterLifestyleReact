@@ -1,11 +1,11 @@
 
-const server_url = "https://www.api.masterlifestyle.ca";
-
+const server_url = "";
 
 async function getAllClients() {
     try {
-        let response = await fetch(`${server_url}`, {
-            method: 'GET'
+        let response = await fetch(`${server_url}/trainers/api/get-all-clients/`, {
+            method: 'GET',
+            credentials: 'include'
         });
         return await response.json()
     } catch (e) {
@@ -18,6 +18,7 @@ async function getClientById(clientId) {
     try {
         let response = await fetch(`${server_url}/trainers/api/get-client-by-id/`, {
             method: 'POST',
+            credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({clientId})
         });
@@ -31,7 +32,8 @@ async function getClientById(clientId) {
 async function getAllPrograms() {
     try {
         let response = await fetch(`${server_url}/trainers/api/get-programs/`, {
-            method: 'GET'
+            method: 'GET',
+            credentials: 'include'
         });
         return await response.json()
     } catch (e) {
@@ -45,6 +47,7 @@ async function assignNewProgram(userId, programId, duration) {
         let response = await fetch(`${server_url}/trainers/api/assign-program/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify({userId, programId, duration})
         });
         return await response.json()
@@ -59,6 +62,7 @@ async function createNewProgram() {
         let response = await fetch(`${server_url}/trainers/api/add-program/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify({
                 name: "Blank Program",
                 notes: [],
@@ -80,6 +84,7 @@ async function getProgramDetails(programId) {
         let response = await fetch(`${server_url}/trainers/api/get-program-by-id/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify({programID: programId})
         });
         return await response.json()
@@ -94,6 +99,7 @@ async function saveProgramProgress(programId, programObject) {
         let response = await fetch(`${server_url}/trainers/api/update-program/`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify({programID: programId, programDetails: programObject})
         });
         return await response.json()
@@ -108,6 +114,7 @@ async function deleteProgram(programId) {
         let response = await fetch(`${server_url}/trainers/api/delete-program/`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify({programId: programId})
         });
         return await response.json()
@@ -120,7 +127,8 @@ async function deleteProgram(programId) {
 async function getAlLExercises() {
     try {
         let response = await fetch(`${server_url}/trainers/api/get-exercises/`, {
-            method: 'GET'
+            method: 'GET',
+            credentials: 'include'
         });
         return await response.json()
     } catch (e) {
@@ -132,7 +140,8 @@ async function getAlLExercises() {
 async function getSingleExercise(exercise_id) {
     try {
         let response = await fetch(`${server_url}/trainers/api/get-exercise/${exercise_id}/`, {
-            method: 'GET'
+            method: 'GET',
+            credentials: 'include'
         });
         return await response.json()
     } catch (e) {
@@ -144,7 +153,8 @@ async function getSingleExercise(exercise_id) {
 async function createBlankExercise() {
     try {
         let response = await fetch(`${server_url}/trainers/api/create-exercise/`, {
-            method: 'GET'
+            method: 'GET',
+            credentials: 'include'
         });
         return await response.json()
     } catch (e) {
@@ -158,6 +168,7 @@ async function updateExercise(exercise_json) {
         let response = await fetch(`${server_url}/trainers/api/update-exercise/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify(exercise_json)
         });
         return await response.json()

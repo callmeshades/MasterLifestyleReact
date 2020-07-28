@@ -1,10 +1,11 @@
 
-const server_url = "https://www.api.masterlifestyle.ca";
+const server_url = "";
 
 async function checkUserAuth() {
     try {
         let response = await fetch(`${server_url}/accounts/api-check-user-session/`, {
-            method: 'GET'
+            method: 'GET',
+            credentials: 'include'
         });
         return await response.json()
     } catch (e) {
@@ -17,7 +18,8 @@ async function checkUserAuth() {
 async function checkForTrainerGroup() {
     try {
         let response = await fetch(`${server_url}/accounts/trainer-group-check/`, {
-            method: 'GET'
+            method: 'GET',
+            credentials: 'include'
         });
         return await response.json()
     } catch (e) {
@@ -29,7 +31,8 @@ async function checkForTrainerGroup() {
 async function checkForUserGroup() {
     try {
         let response = await fetch(`${server_url}/accounts/user-group-check/`, {
-            method: 'GET'
+            method: 'GET',
+            credentials: 'include'
         });
         return await response.json()
     } catch (e) {
@@ -43,6 +46,7 @@ async function userLogin(username, password) {
     let response = await fetch(`${server_url}/accounts/api-login/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({username, password})
     });
     return await response.json();
@@ -51,7 +55,21 @@ async function userLogin(username, password) {
 async function userLogout() {
     try {
         let response = await fetch(`${server_url}/accounts/api-logout/`, {
-            method: 'GET'
+            method: 'GET',
+            credentials: 'include'
+        });
+        return await response.json()
+    } catch (e) {
+        console.log('Error: Unable to connect to backend server');
+        return await e;
+    }
+}
+
+async function getUserData() {
+    try {
+        let response = await fetch(`${server_url}/accounts/api-fetch-user-data/`, {
+            method: 'GET',
+            credentials: 'include'
         });
         return await response.json()
     } catch (e) {
@@ -66,5 +84,6 @@ export {
     userLogin,
     userLogout,
     checkForTrainerGroup,
-    checkForUserGroup
+    checkForUserGroup,
+    getUserData
 }

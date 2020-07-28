@@ -32,7 +32,6 @@ function AssignmentWeek(props) {
                     day={item}
                     weekId={props.weekId}
                     dayIndex={index}
-                    weekId={props.weekId}
                 />
             </div>
         );

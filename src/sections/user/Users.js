@@ -13,7 +13,6 @@ function Users(props) {
         const response = checkUserAuth()
         response.then(data => {
             if (!data.authed) {
-                console.log(data);
                 navigate('/login');
             }
         }).then(() => {
@@ -21,7 +20,6 @@ function Users(props) {
                 if (data.success) {
                     setLoading(false);
                 } else {
-                    console.log(data);
                     navigate('/logout');
                 }
             })

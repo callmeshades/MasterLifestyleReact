@@ -10,7 +10,7 @@ function DayBody(props) {
             <div>
                 { props.program.exercises && props.program.exercises.map((exercise) =>
                     <ExerciseCard
-                        key={exercise.id}
+                        key={exercise.randomId}
                         exercise={exercise}
                         program={props.program}
                         updateDayItem={props.updateDayItem}

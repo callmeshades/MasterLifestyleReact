@@ -1,11 +1,10 @@
 import React, {useState} from "react";
 import {Edit2, Check} from "react-feather";
-import {useStoreActions} from "easy-peasy";
+import ProgramContext from '../../../../../../../../../../context/program-context';
 
 
 function Name(props) {
     const [editable, setEditable] = useState(false);
-    const updateNameForDay = useStoreActions(actions => actions.program.updateDayName);
 
     if (!editable) {
         return (
@@ -26,24 +25,25 @@ function Name(props) {
         )
     } else {
         return (
-            <div className="flex justify-start items-center">
-                <input type="text"
-                       value={props.program.title}
-                       onChange={(event => updateNameForDay({
-                           day_id: props.program.id,
-                           value: event.target.value
-                       }))}
-                       className="bg-white border px-2 py-1 focus:shadow-outline"
-                />
-                <button
-                    onClick={() => setEditable(false)}
-                    className="ml-2 focus:outline-none"
-                >
-                    <Check
-                        size={14}
-                    />
-                </button>
-            </div>
+            <ProgramContext.Consumer>
+                {context => (
+                    <div className="flex justify-start items-center">
+                        <input type="text"
+                            value={props.program.title}
+                            onChange={(event => context.updateDayTitle(props.program.id, event.target.value))}
+                            className="bg-white border px-2 py-1 focus:shadow-outline"
+                        />
+                        <button
+                            onClick={() => setEditable(false)}
+                            className="ml-2 focus:outline-none"
+                        >
+                            <Check
+                                size={14}
+                            />
+                        </button>
+                    </div>
+                )}
+            </ProgramContext.Consumer>
         )
     }
 
